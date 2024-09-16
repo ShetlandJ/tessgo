@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Tess-go",
+  "version": "0.0.0",
+  "description": "Hide items from Tesco shopping",
+  "permissions": ["activeTab", "cookies", "storage"],
+  "host_permissions": ["https://www.tesco.com//*"],
+  "incognito": "split",
+  "content_scripts": [
+    {
+      "matches": ["https://www.tesco.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "offline_enabled": false,
+  "web_accessible_resources": [
+   {
+     "resources": ["images/*.jpg", "hidden-words.json"],
+     "matches": ["<all_urls>"]
+   }
+ ]
+}
