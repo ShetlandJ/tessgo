@@ -7,12 +7,12 @@ const loadHiddenWords = async () => {
 function findParentByIdPattern(childElement) {
     let parent = childElement.parentElement;
     while (parent) {
-        if (parent.id && /^tile-\d+$/.test(parent.id)) { // Regex to match id pattern 'tile-XXXXXXX'
+        if (parent.id && /^tile-\d+$/.test(parent.id)) {
             return parent;
         }
-        parent = parent.parentElement; // Move up the DOM tree
+        parent = parent.parentElement; 
     }
-    return null; // If no matching parent is found
+    return null; 
 }
 
 const shouldBeHidden = (element, hiddenWordsList) => {
@@ -27,12 +27,8 @@ const shouldBeHidden = (element, hiddenWordsList) => {
 };
 
 const getRandomImage = () => {
-    // Generate a random number between 1 and 10
     const randomIndex = Math.floor(Math.random() * 4) + 1;
-
-    // Get the image URL using chrome.runtime.getURL() to load from the extension
     const imagePath = chrome.runtime.getURL(`images/${randomIndex}.jpg`);
-
     return imagePath;
 }
 
